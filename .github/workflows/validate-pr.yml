@@ -33,3 +33,11 @@ jobs:
             exit 1
           fi
           echo "PR title matches Conventional Commits format."
+
+  check-path-lengths:
+    name: Check Windows Path Lengths
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for paths exceeding Windows MAX_PATH limit
+        run: node check-path-lengths.js
